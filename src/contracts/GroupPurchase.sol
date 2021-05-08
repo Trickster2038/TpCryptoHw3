@@ -20,6 +20,12 @@ contract GroupPurchase {
     function name() public view virtual returns (string memory) {
         return _name;
     }
+
+    function testf(string memory new_name_) public payable {
+        if(msg.value > 3){
+            _name = new_name_;
+        }
+    }
 }
 
 

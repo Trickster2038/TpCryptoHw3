@@ -20,9 +20,16 @@ t.submitTransaction("0x66aB6D9362d4F35596279692F0251Db635165871", 1, 4)    accou
 t.submitTransaction(accounts[3],"1 ether",50)
 ```
 
-```py
+```
 GroupPurchase[0]
 <GroupPurchase Contract '0x3194cBDC3dbcd3E11a07892e7bA5c3394048Cc87'>
 t = GroupPurchase[0]
 ```
 
+```
+t = GroupPurchase.deploy("name1",{'from':accounts[0]})
+```
+
+```
+t.testf("name 2", {'from':accounts[0],'value':4})
+```
