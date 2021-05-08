@@ -34,5 +34,7 @@ t.initPurchase(3, 433,accounts[5],{'from':accounts[1]})
 t.getFreeId()
 t.purchases(1)
 (432, 0, "0x21b42413bA931038f35e7A5224FaDb065d297Ba3", True)
+ t.investTipOwner(3,{'from':accounts[2],'value':400})
+accounts[1].balance()
 ```
 
