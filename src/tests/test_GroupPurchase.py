@@ -88,4 +88,4 @@ def test_saler_didnt_get_money():
     balance = accounts[2].balance()
     t = GroupPurchase[0]
     t.investTipBack(3, {'from':accounts[3],'value':300})
-    assert balance + 400 == accounts[2].balance()
+    assert balance == accounts[2].balance()
