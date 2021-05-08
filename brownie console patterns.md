@@ -3,6 +3,10 @@
 ## Cheat list:
 https://manojpramesh.github.io/solidity-cheatsheet/#fallback-function
 
+## Unit tests:
+
+https://eth-brownie.readthedocs.io/en/stable/tests-pytest-intro.html
+
 ## Code samples:
 
 ```    

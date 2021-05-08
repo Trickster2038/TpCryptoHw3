@@ -20,9 +20,6 @@ contract GroupPurchase {
         _owner = payable(msg.sender);
     }
 
-    /**
-     * @dev Returns the name of the contract.
-     */
     function name() public view virtual returns (string memory) {
         return _name;
     }
@@ -30,12 +27,6 @@ contract GroupPurchase {
     function owner() public view virtual returns (address payable) {
         return _owner;
     }
-
-    // function testf(string memory new_name_) public payable {
-    //     if(msg.value > 3){
-    //         _name = new_name_;
-    //     }
-    // }
 
     function changeOwner(address payable owner_) public {
         require(payable(msg.sender) == _owner);
@@ -77,6 +68,19 @@ contract GroupPurchase {
             tipping = purchases[id_].invested - purchases[id_].cost;
             purchases[id_].saler.transfer(purchases[id_].cost);
             _owner.transfer(tipping);
+            delete purchases[id_];
+        }
+    }
+
+    // allows to transfer extra money back
+    function investTipBack(uint8 id_) public payable {
+        require(purchases[id_].isActive == true);
+        purchases[id_].invested += msg.value;       
+        if(purchases[id_].invested >= purchases[id_].cost){
+            uint256 tipping;
+            tipping = purchases[id_].invested - purchases[id_].cost;
+            purchases[id_].saler.transfer(purchases[id_].cost);
+            payable(msg.sender).transfer(tipping);
             delete purchases[id_];
         }
     }
