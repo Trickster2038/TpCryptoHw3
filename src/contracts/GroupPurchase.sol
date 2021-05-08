@@ -31,6 +31,17 @@ contract GroupPurchase {
     //     }
     // }
 
+    function getFreeId() public view returns(uint8 i){
+        i = 0;
+        for (i = 1; i != 0; i++) {
+            if(purchases[i].isActive == false) {
+                break;
+            }
+        }
+        require(purchases[i].isActive == false);
+        return i;
+    }
+
     function initPurchase(uint8 id_, uint256 cost_, address sailer_) public {
         require(purchases[id_].isActive == false);
         purchases[id_] = Purchase(cost_, 0, sailer_, true);

@@ -1,5 +1,9 @@
 # ETH-Brownie console patterns
 
+## Cheat list:
+https://manojpramesh.github.io/solidity-cheatsheet/#fallback-function
+
+## Code samples:
 
 ```    
 Transaction sent: 0xf993f98e009cfc98527e7519f2d2b2211d7d2d30ccdb986a351324a918f95df3
@@ -20,16 +24,15 @@ t.submitTransaction("0x66aB6D9362d4F35596279692F0251Db635165871", 1, 4)    accou
 t.submitTransaction(accounts[3],"1 ether",50)
 ```
 
-```
-GroupPurchase[0]
-<GroupPurchase Contract '0x3194cBDC3dbcd3E11a07892e7bA5c3394048Cc87'>
-t = GroupPurchase[0]
-```
-
-```
-t = GroupPurchase.deploy("name1",{'from':accounts[0]})
-```
+## Group purchase 
 
 ```
 t.testf("name 2", {'from':accounts[0],'value':4})
+t = GroupPurchase[0]
+t = GroupPurchase.deploy("name1",{'from':accounts[0]})
+t.initPurchase(3, 433,accounts[5],{'from':accounts[1]})
+t.getFreeId()
+t.purchases(1)
+(432, 0, "0x21b42413bA931038f35e7A5224FaDb065d297Ba3", True)
 ```
+
