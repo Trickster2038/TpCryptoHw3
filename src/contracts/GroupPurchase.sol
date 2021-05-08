@@ -1,14 +1,18 @@
 pragma solidity ^0.8.0;
 
 contract GroupPurchase {
-    // client => order num 
-    mapping (address => uint256) private _purchases;
-    // order num => money 
-    mapping (uint256 => uint256) private _donations;
-    // order num => saler 
-    mapping (uint256 => address) private _salers;
+
     string private _name;
 
+    struct Purchase {
+        uint256 cost;
+        uint256 invested;
+        address saler;
+        bool isActive;
+    }
+
+    // id of purchase
+    mapping (uint8 => Purchase) public purchases;
 
     constructor (string memory name_) {
         _name = name_;
@@ -21,11 +25,18 @@ contract GroupPurchase {
         return _name;
     }
 
-    function testf(string memory new_name_) public payable {
-        if(msg.value > 3){
-            _name = new_name_;
-        }
+    // function testf(string memory new_name_) public payable {
+    //     if(msg.value > 3){
+    //         _name = new_name_;
+    //     }
+    // }
+
+    function initPurchase(uint8 id_, uint256 cost_, address sailer_) public {
+        require(purchases[id_].isActive == false);
+        purchases[id_] = Purchase(cost_, 0, sailer_, true);
     }
+
+    //function getPurchase(uint8 id_) public returns()
 }
 
 
