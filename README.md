@@ -42,7 +42,7 @@ $ brownie console
 
 ## Результаты тестов
 
-![](./tests_screenshot.png)
+![](tests_screenshot.png)
 
 ## Файлы проекта
 
