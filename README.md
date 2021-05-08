@@ -47,4 +47,5 @@ $ brownie console
 ## Файлы проекта
 
 *src/contracts/GroupPurchase.sol* - смарт контракт
+
 *src/tests/test_GroupPurchase.py* - тесты
